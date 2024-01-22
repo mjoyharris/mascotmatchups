@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mascot Matchings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Welcome to Mascot Matchings</h1>
+    <div id="instagram-feed"></div>
+    <script>
+        // Fetch Instagram photos on page load
+        window.onload = async function() {
+            const container = document.getElementById('instagram-feed');
+            try {
+                const response = await fetch('/instagram-photos');
+                const data = await response.json();
+
+                data.data.forEach(photo => {
+                    // Create an image element for each photo
+                    const img = document.createElement('img');
+                    img.src = photo.media_url;
+                    img.alt = photo.caption || 'Instagram photo';
+                    container.appendChild(img);
+                });
+            } catch (error) {
+                console.error('Error fetching Instagram photos:', error);
+                container.innerHTML = '<p>Failed to load Instagram photos.</p>';
+            }
+        };
+    </script>
+</body>
+</html>

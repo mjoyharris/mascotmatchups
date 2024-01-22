@@ -1,0 +1,12 @@
+/* Add your CSS styling here */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+#instagram-feed img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px;
+}
