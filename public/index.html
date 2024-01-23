@@ -13,7 +13,7 @@
         window.onload = async function() {
             const container = document.getElementById('instagram-feed');
             try {
-                const response = await fetch('/instagram-photos');
+                const response = await fetch('https://mascotmatchings.com/instagram-photos');
                 const data = await response.json();
 
                 data.data.forEach(photo => {
