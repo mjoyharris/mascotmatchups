@@ -2,32 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mascot Matchings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascot Matchups</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to Mascot Matchings</h1>
-    <div id="instagram-feed"></div>
-    <script>
-        // Fetch Instagram photos on page load
-        window.onload = async function() {
-            const container = document.getElementById('instagram-feed');
-            try {
-                const response = await fetch('https://mascotmatchings.com/instagram-photos');
-                const data = await response.json();
+    <header>
+        <h1>Welcome to Mascot Matchups</h1>
+    </header>
 
-                data.data.forEach(photo => {
-                    // Create an image element for each photo
-                    const img = document.createElement('img');
-                    img.src = photo.media_url;
-                    img.alt = photo.caption || 'Instagram photo';
-                    container.appendChild(img);
-                });
-            } catch (error) {
-                console.error('Error fetching Instagram photos:', error);
-                container.innerHTML = '<p>Failed to load Instagram photos.</p>';
-            }
-        };
-    </script>
+    <main>
+        <div class="swiper-container">
+            <div class="swiper-wrapper" id="instagram-feed">
+                <!-- Slides will be injected here by JavaScript -->
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Follow us on Instagram: @InstaGatorAI</p>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
