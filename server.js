@@ -1,45 +1,31 @@
-async function fetchInstagramPhotos() {
-    const container = document.querySelector('.swiper-wrapper');
+//server.js
+const express = require('express');
+const axios = require('axios');
+const app = express();
+const port = 3000;
+
+// Access token - replace with your actual token
+const accessToken = 'IGQWRNZAVhOUG9wMW9UQ3pCdng1VGthZAVQ5dlRYUEgxWWRTUUoxc19JWHc1TWxzVUREeVg4bnhyWEt4RDlwN1lEN3hMcUtGazlRNWl5dTFCZAkNUZA0JwOW5sRzV0LWphWWtjT1AzSGJ2d2tJaFlRMy1PNzhJWDg1NmsZD';
+
+app.use(express.static('public'));
+
+app.get('/instagram-photos', async (req, res) => {
     try {
-        const response = await fetch('/instagram-photos');
-        const data = await response.json();
-
-        data.data.forEach(photo => {
-            const slide = document.createElement('div');
-            slide.className = 'swiper-slide';
-
-            const img = document.createElement('img');
-            img.src = photo.media_url;
-            img.alt = photo.caption || 'Instagram photo';
-
-            slide.appendChild(img);
-
-            const caption = document.createElement('div');
-            caption.className = 'caption';
-            caption.innerText = photo.caption || '';
-            slide.appendChild(caption);
-
-            container.appendChild(slide);
-        });
-
-        // Initialize Swiper after the slides are added
-        new Swiper('.swiper-container', {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            loop: true,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-        });
+        const response = await axios.get(`https://graph.instagram.com/me/media?fields=id,caption,media_url&access_token=${accessToken}`);
+        res.json(response.data);
     } catch (error) {
         console.error('Error:', error);
-        container.innerHTML = '<p>Failed to load Instagram photos.</p>';
+        res.status(500).send('Error fetching Instagram photos.');
     }
-}
+});
 
-fetchInstagramPhotos();
+/*
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
+*/
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});
+
