@@ -5,7 +5,7 @@ const app = express();
 const port = 3000;
 
 // Access token - replace with your actual token
-const accessToken = 'IGQWRNZAVhOUG9wMW9UQ3pCdng1VGthZAVQ5dlRYUEgxWWRTUUoxc19JWHc1TWxzVUREeVg4bnhyWEt4RDlwN1lEN3hMcUtGazlRNWl5dTFCZAkNUZA0JwOW5sRzV0LWphWWtjT1AzSGJ2d2tJaFlRMy1PNzhJWDg1NmsZD';
+const accessToken = 'IGQWRPd29VeElYRzA0S2Nva3JPRGlNUE14TnhQSHFKNXRIX1hkYldYQktHeGRud2lsLWkzbFBtUWxxYk5ZAZA1l0WG1XNFJuZAG9yMV9SMHZAQMFBJN0hMR3pMUk5qWDc4TFZAMM292bmVkS2hUcWpkb2RLSnpRVVY1Y00ZD';
 
 app.use(express.static('public'));
 
