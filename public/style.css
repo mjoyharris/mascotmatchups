@@ -1,19 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 body, h1, p {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Lobster', cursive; 
 }
 
 header {
-    background-color: #333;
+    background-color: #fa4616; 
     color: #fff;
-    padding: 10px 20px;
+    padding: 20px 20px;
     text-align: center;
 }
 
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
 h1 {
-    font-size: 2.5em;
+    font-size: 5em;
     font-weight: 300;
+    margin: 0 20px;
+    color: #0c472d; 
+}
+
+.flanking-image {
+    max-width: 250px;
+    margin: 0 10px;
 }
 
 main {
@@ -22,17 +38,17 @@ main {
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #FA4616; 
+    color: #0c472d; 
     text-align: center;
-    padding: 10px 20px;
+    padding: 20px 20px; 
     position: absolute;
     bottom: 0;
     width: 100%;
 }
 
 footer p {
-    font-size: 1em;
+    font-size: 1.5em;
 }
 
 .swiper-container {
@@ -54,21 +70,22 @@ footer p {
 }
 
 .caption {
-    color: #555;
+    color: #0c472d;
     font-size: 0.9em;
     text-align: center;
     padding: 10px;
 }
 
 .swiper-button-next, .swiper-button-prev {
-    color: #000;
+    font-size: 3px;
+    color: #fa4616;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
 }
 
 @media (max-width: 768px) {
     h1 {
-        font-size: 2em;
+        font-size: 4em;
     }
 
     .swiper-container {
