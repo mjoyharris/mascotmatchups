@@ -232,8 +232,26 @@
 				<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 				<script type="text/javascript">
 				   (function(){
-					  emailjs.init("your-user-id-here"); // Replace "your-user-id-here" with your actual EmailJS user ID
+					  emailjs.init("vddYnGG7cZmeAYShO"); // Replace "your-user-id-here" with your actual EmailJS user ID
 				   })();
+
+				   window.onload = function() {
+       document.getElementById('contact-form').addEventListener('submit', function(event) {
+           event.preventDefault();
+
+           // Here, "service_ID" is your EmailJS service ID
+           // "template_ID" is your EmailJS template ID
+           // "user_ID" is your EmailJS user ID
+           emailjs.sendForm('service_tmnh6el', 'template_jadocv9', this)
+               .then(function() {
+                   console.log('SUCCESS!');
+                   alert('Your message was sent!');
+               }, function(error) {
+                   console.log('FAILED...', error);
+                   alert('Failed to send the message, please try again later.');
+               });
+       });
+   }
 				</script>
 				
 				
