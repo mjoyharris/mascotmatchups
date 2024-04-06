@@ -2564,7 +2564,7 @@ input, select, textarea {
 		/* Swiper Container */
 	.swiper-container {
 		width: 100%; /* You might want to set a specific width instead */
-		height: 500px; /* Adjust the height as needed */
+		height: 560px; /* Adjust the height as needed */
 		margin: 2em auto; /* This centers the swiper container with a margin above and below it */
 	}
 
