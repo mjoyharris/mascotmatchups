@@ -63,7 +63,7 @@
 											<header>
 												<h2>ABOUT US</h2>
 											</header>
-											<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+			
 											<h3>Senior project by Victor Polisetty, Maya Harris, Ryan Circelli, Travis Maddox, and Moinak Dey</h3>
 											<p>Description of project</p>
 											<ul class="actions">
@@ -121,22 +121,22 @@
 						<div class="row">
 							<div class="col-6 col-12-medium">
 								<section>
-									<form method="post" action="#">
+									<form id="contact-form">
 										<div class="row gtr-50">
 											<div class="col-6 col-12-small">
-												<input name="name" placeholder="Name" type="text" />
+												<input name="name" placeholder="Name" type="text" required />
 											</div>
 											<div class="col-6 col-12-small">
-												<input name="email" placeholder="Email" type="text" />
+												<input name="email" placeholder="Email" type="email" required />
 											</div>
 											<div class="col-12">
-												<textarea name="message" placeholder="Message"></textarea>
+												<textarea name="message" placeholder="Message" required></textarea>
 											</div>
 											<div class="col-12">
-												<a href="#" class="form-button-submit button icon solid fa-envelope">Send Message</a>
+												<button type="submit" class="form-button-submit button icon solid fa-envelope">Send Message</button>
 											</div>
 										</div>
-									</form>
+									</form>									
 								</section>
 							</div>
 							<div class="col-6 col-12-medium">
@@ -145,14 +145,14 @@
 										<div class="col-6 col-12-small">
 											<ul class="icons">
 												<li class="icon solid fa-envelope">
-													<a href="#">mjoydesigning@gmail.com</a>
+													<a href="mailto:mjoydesigning@gmail.com">mjoydesigning@gmail.com</a>
 												</li>
 											</ul>
 										</div>
 										<div class="col-6 col-12-small">
 											<ul class="icons">
 												<li class="icon brands fa-instagram">
-													<a href="#">instagram.com/instagatorai</a>
+													<a href="https://www.instagram.com/instagatorai/" target="_blank" rel="noopener noreferrer">instagram.com/instagatorai</a>
 												</li>
 											</ul>
 										</div>
@@ -171,12 +171,6 @@
 		</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
 			<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
 			<script>
@@ -235,5 +229,13 @@
 					fetchInstagramPhotos();
 				});
 				</script>
+				<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+				<script type="text/javascript">
+				   (function(){
+					  emailjs.init("your-user-id-here"); // Replace "your-user-id-here" with your actual EmailJS user ID
+				   })();
+				</script>
+				
+				
 	</body>
 </html>
