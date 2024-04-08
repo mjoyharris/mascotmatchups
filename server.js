@@ -4,6 +4,7 @@ const cors = require('cors');
 const axios = require('axios');
 const app = express();
 const port = 3000;
+const emailjs = require('emailjs-com'); // Import EmailJS library
 
 app.use(cors());
 app.use(express.static('assets')); // Serve assets
@@ -31,12 +32,6 @@ app.get('/instagram-photos', async (req, res) => {
         res.status(500).send('Error fetching Instagram photos.');
     }
 });
-
-/*
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-});
-*/
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
