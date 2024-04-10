@@ -178,6 +178,7 @@
 				let swiper = null;
 
 				document.addEventListener('DOMContentLoaded', function() {
+					
 					async function fetchInstagramPhotos() {
     const container = document.querySelector('.swiper-wrapper');
     try {
@@ -203,12 +204,12 @@
         // Check if Swiper is already initialized
         if (swiper) {
             swiper.update(); // Update Swiper
+
         } else {
             // Initialize Swiper
             swiper = new Swiper('.swiper-container', {
                 slidesPerView: 1,
                 spaceBetween: 30,
-                loop: true,
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
@@ -228,6 +229,7 @@
 
 					fetchInstagramPhotos();
 				});
+
 				
 				
 				</script>
