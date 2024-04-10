@@ -170,64 +170,68 @@
 
 		</div>
 
+		
 		<!-- Scripts -->
 			<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
 			<script>
+				let swiper = null;
+
 				document.addEventListener('DOMContentLoaded', function() {
-					async function fetchInstagramPhotos() {
-						const container = document.querySelector('.swiper-wrapper'); // Ensure this selector matches your new template's structure
-						try {
-							const response = await fetch('/instagram-photos');
-							const data = await response.json();
-
-							data.data.forEach(photo => {
-							const slide = document.createElement('div');
-							slide.className = 'swiper-slide';
-
-							// Create an image element for the photo
-							const img = document.createElement('img');
-							img.src = photo.media_url;
-							img.alt = photo.caption || 'Instagram photo';
-							slide.appendChild(img);
-
-							// Optionally, add a caption if it exists
-							if (photo.caption) {
-								const captionDiv = document.createElement('div');
-								captionDiv.className = 'caption';
-								// Set HTML content with caption text followed by multiple non-breaking spaces wrapped in a paragraph
-								captionDiv.innerHTML = `<p>${photo.caption}</p>`; // Using <br/> to create space
-								slide.appendChild(captionDiv);
-							}
-
-							// Append the slide to the container
-							container.appendChild(slide);
-						});
-
-							// Initialize Swiper here if it's still part of the presentation
-							new Swiper('.swiper-container', {
-								slidesPerView: 1,
-								spaceBetween: 30,
-								loop: true,
-								navigation: {
-									nextEl: '.swiper-button-next',
-									prevEl: '.swiper-button-prev',
-								},
-								pagination: {
-									el: '.swiper-pagination',
-									clickable: true,
-								},
-							});
-						} catch (error) {
-							console.error('Error:', error);
-							container.innerHTML = '<p>Failed to load Instagram photos.</p>';
-						}
-					}
-
 					
+					async function fetchInstagramPhotos() {
+    const container = document.querySelector('.swiper-wrapper');
+    try {
+        const response = await fetch('/instagram-photos');
+        const data = await response.json();
+
+        data.data.forEach(photo => {
+            const slide = document.createElement('div');
+            slide.className = 'swiper-slide';
+            const img = document.createElement('img');
+            img.src = photo.media_url;
+            img.alt = photo.caption || 'Instagram photo';
+            slide.appendChild(img);
+            if (photo.caption) {
+                const captionDiv = document.createElement('div');
+                captionDiv.className = 'caption';
+                captionDiv.innerHTML = `<p>${photo.caption}</p>`;
+                slide.appendChild(captionDiv);
+            }
+            container.appendChild(slide);
+        });
+
+        // Check if Swiper is already initialized
+        if (swiper) {
+            swiper.update(); // Update Swiper
+
+        } else {
+            // Initialize Swiper
+            swiper = new Swiper('.swiper-container', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        container.innerHTML = '<p>Failed to load Instagram photos.</p>';
+    }
+}
+
 
 					fetchInstagramPhotos();
 				});
+
+				
+				
 				</script>
 				<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 				<script type="text/javascript">
